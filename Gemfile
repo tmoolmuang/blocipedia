@@ -20,6 +20,7 @@ source 'https://rubygems.org'
  gem 'turbolinks'
  gem 'figaro'
  gem 'bootstrap-sass'
+ gem 'devise'
 
  group :development, :test do
    gem 'byebug'
