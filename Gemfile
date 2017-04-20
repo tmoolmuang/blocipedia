@@ -21,6 +21,7 @@ source 'https://rubygems.org'
  gem 'figaro'
  gem 'bootstrap-sass'
  gem 'devise'
+ gem 'bcrypt'
  
  group :development, :test do
    gem 'byebug'
