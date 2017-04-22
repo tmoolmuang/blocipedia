@@ -1,0 +1,15 @@
+<h2>Wikis by you: <%= getUser(current_user.id) %></h2>
+<div class="row">
+  <div class="col-md-8">
+    <% @wikis.each do |wiki| %>
+      <div class="media">
+        <div class="media-body">
+          <h4 class="media-heading">
+            <%= link_to wiki.title, wiki %> 
+            <small> - created <%= time_ago_in_words(wiki.created_at) %> ago</small>
+          </h4>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

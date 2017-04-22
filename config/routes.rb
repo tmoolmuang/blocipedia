@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :wikis 
+  resources :wikis do
+    collection do
+      get 'mywikis'
+    end
+  end
   
   devise_for :users
   

@@ -58,4 +58,8 @@ class WikisController < ApplicationController
     end
   end
   
+  def mywikis
+    @wikis = Wiki.where(user_id: current_user.id).order('created_at desc')
+  end
+  
 end
