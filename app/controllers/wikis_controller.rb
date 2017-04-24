@@ -1,14 +1,19 @@
 class WikisController < ApplicationController
+  after_action :verify_authorized
+  
   def index
     @wikis = Wiki.all
+    authorize @wikis
   end
 
   def show
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
   end
 
   def new
     @wiki = Wiki.new
+    authorize @wiki
   end
   
   def create
@@ -17,6 +22,8 @@ class WikisController < ApplicationController
     @wiki.body = params[:wiki][:body]
     @wiki.private = params[:wiki][:private]
     @wiki.user_id = params[:wiki][:user_id]
+    
+    authorize @wiki
   
     if @wiki.save
       flash[:notice] = "Wiki was saved."
@@ -29,6 +36,7 @@ class WikisController < ApplicationController
 
   def edit
     @wiki = Wiki.find(params[:id])
+    authorize @wiki
   end
   
   def update
@@ -36,6 +44,8 @@ class WikisController < ApplicationController
     @wiki.title = params[:wiki][:title]
     @wiki.body = params[:wiki][:body]
     @wiki.private = params[:wiki][:private]
+    
+    authorize @wiki
  
     if @wiki.save
       flash[:notice] = "Wiki was updated."
@@ -48,6 +58,8 @@ class WikisController < ApplicationController
   
   def destroy
     @wiki = Wiki.find(params[:id])
+    
+    authorize @wiki
 
     if @wiki.destroy
       flash[:notice] = "\"#{@wiki.title}\" was deleted successfully."
@@ -60,6 +72,7 @@ class WikisController < ApplicationController
   
   def mywikis
     @wikis = Wiki.where(user_id: current_user.id).order('created_at desc')
+    authorize @wikis
   end
   
 end

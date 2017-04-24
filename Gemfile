@@ -22,6 +22,7 @@ source 'https://rubygems.org'
  gem 'bootstrap-sass'
  gem 'devise'
  gem 'bcrypt'
+ gem "pundit"
  
  group :development, :test do
    gem 'byebug'
