@@ -24,6 +24,7 @@ source 'https://rubygems.org'
  gem 'bcrypt'
  gem "pundit"
  gem 'stripe'
+ gem 'faker'
  
  group :development, :test do
    gem 'byebug'
