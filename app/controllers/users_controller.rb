@@ -14,12 +14,19 @@ class UsersController < ApplicationController
     authorize User
     
     if @user.save
-      flash[:notice] = "Your premium membership has been downgraded to standard level."
-      redirect_to :back
+      flash[:notice] = "Your premium membership has been downgraded to standard level. Your private wikis are now public."
+      redirect_to root_path
     else
       flash[:error] = "There was an error downgrading your membership. Please try again."
       redirect_to :back
     end
+    
+    @user_wikis = @user.wikis.where(private: true)
+
+    @user_wikis.each do |wiki|
+      wiki.update_attributes(private: false)
+    end
+    
   end
   
 
