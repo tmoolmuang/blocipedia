@@ -27,10 +27,6 @@
         <%= f.text_field :name, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.label :role %>
-        <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
-      </div>
-      <div class="form-group">
         <%= f.label :current_password %><br /><i><small>(we need your current password to confirm your changes)</small></i><br />
         <%= f.password_field :current_password, class: 'form-control', autocomplete: "off" %>
       </div>
@@ -38,6 +34,9 @@
       <div class="form-group">
         <%= f.submit "Update", class: 'btn btn-success' %>
       </div>
+    <% end %>
+    <% if current_user.premium? %>
+       <p> <%= button_to "Downgrade Account to Standard", downgrade_user_path(current_user), class: 'btn btn-primary', data: { confirm: "Your premium membership will be downgraded to standard level. Are you sure?" }, method: :post %> </p>
     <% end %>
   </div>
   <div class="col-md-4"> 

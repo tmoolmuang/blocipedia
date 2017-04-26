@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :role, :password, :current_password) }
   end
   
+  def upgrade_to_premium
+    current_user.update_attributes(:role => "premium")
+  end
+  
 end

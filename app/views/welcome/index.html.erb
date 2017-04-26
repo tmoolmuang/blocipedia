@@ -4,7 +4,9 @@
    <p>An aplication that allows users to create public and private Markdown-based wikis.</p>
    <p>
      <% if user_signed_in? %>  
-       - Show other options -
+       <% if current_user.standard? %>
+         Upgrade to premium member <%= link_to 'Click', new_charge_path, class: "btn btn-primary"%> for special offer today! 
+       <% end %>
      <% else %>
        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
      <% end %>

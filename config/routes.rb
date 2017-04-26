@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   end
   
   devise_for :users
-  resources :users
+  resources :users do
+    member do
+      post :downgrade
+    end
+  end
+  
+  resources :charges, only: [:new, :create]
   
   get 'welcome/index'
 

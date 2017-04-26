@@ -9,6 +9,14 @@ class UserPolicy
   def index?
     @current_user.admin?
   end
+  
+  def downgrade?
+    @current_user.present?
+  end
+  
+  
+  
+  
 
   def show?
     @current_user.admin? or @current_user == @user

@@ -7,9 +7,24 @@ class UsersController < ApplicationController
     authorize User
   end
   
-  
+  def downgrade
+    @user = User.find(params[:id])
+    @user.role = 'standard'
+
+    authorize User
+    
+    if @user.save
+      flash[:notice] = "Your premium membership has been downgraded to standard level."
+      redirect_to :back
+    else
+      flash[:error] = "There was an error downgrading your membership. Please try again."
+      redirect_to :back
+    end
+  end
   
 
+
+  # will be delelted?
   def show
     @user = User.find(params[:id])
     authorize @user
