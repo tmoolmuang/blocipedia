@@ -25,6 +25,7 @@ source 'https://rubygems.org'
  gem "pundit"
  gem 'stripe'
  gem 'faker'
+ gem 'redcarpet'
  
  group :development, :test do
    gem 'byebug'

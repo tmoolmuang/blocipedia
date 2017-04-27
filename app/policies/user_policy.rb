@@ -16,7 +16,6 @@ class UserPolicy
   
   
   
-  
 
   def show?
     @current_user.admin? or @current_user == @user
