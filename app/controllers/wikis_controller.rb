@@ -2,8 +2,17 @@ class WikisController < ApplicationController
   after_action :verify_authorized
   
   def index
-    @wikis = Wiki.all
+    # @wikis = Wiki.where(user_id: current_user.id).order('created_at desc')
+    # @wikis = Wiki.where("private = false")
+    
+    @wikis = Wiki.all.order('created_at desc')
+    
     authorize @wikis
+    # if current_user || current_user.standard?
+    #   @wikis = Wiki.where(private: false)
+    # else
+    #   @wikis = Wiki.all
+    # end
   end
 
   def show

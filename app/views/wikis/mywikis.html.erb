@@ -1,6 +1,7 @@
-<h2>Wikis by you: <%= getUser(current_user.id) %></h2>
+<h2>My Wiki</h2>
 <div class="row">
   <div class="col-md-8">
+    <%= pluralize(@wikis.count, "wiki") %> by <%= getUser(current_user.id) %><br />
     <% @wikis.each do |wiki| %>
       <div class="media">
         <div class="media-body">
