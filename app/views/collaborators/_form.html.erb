@@ -1,0 +1,9 @@
+<% if current_user.admin? || current_user.premium? %>
+  <div class="form-group">
+    <%= f.label :collaborators %>
+    <%= f.text_field :collaborators,
+        class: 'form-control',
+        placeholder: "Enter collaborator emails (separated by commas)",
+        value: collaborators.map(&:email).join(', ') %>
+  </div>
+<% end %>

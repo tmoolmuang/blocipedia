@@ -2,21 +2,14 @@ class WikisController < ApplicationController
   after_action :verify_authorized
   
   def index
-    # @wikis = Wiki.where(user_id: current_user.id).order('created_at desc')
-    # @wikis = Wiki.where("private = false")
-    
-    @wikis = Wiki.all.order('created_at desc')
-    
+    # @wikis = Wiki.all.order('created_at desc')
+    @wikis = policy_scope(Wiki)
     authorize @wikis
-    # if current_user || current_user.standard?
-    #   @wikis = Wiki.where(private: false)
-    # else
-    #   @wikis = Wiki.all
-    # end
   end
 
   def show
     @wiki = Wiki.find(params[:id])
+    #add more policies for collaborators?
     authorize @wiki
   end
 
@@ -35,6 +28,7 @@ class WikisController < ApplicationController
     authorize @wiki
   
     if @wiki.save
+      @wiki.collaborators = Collaborator.update_collaborators(params[:wiki][:collaborators])
       flash[:notice] = "Wiki was saved."
       redirect_to @wiki
     else
@@ -57,6 +51,7 @@ class WikisController < ApplicationController
     authorize @wiki
  
     if @wiki.save
+      @wiki.collaborators = Collaborator.update_collaborators(params[:wiki][:collaborators])
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki
     else
