@@ -1,10 +1,10 @@
 class WikisController < ApplicationController
-  after_action :verify_authorized
+  after_action :verify_authorized, except: [:index]
   
   def index
     # @wikis = Wiki.all.order('created_at desc')
     @wikis = policy_scope(Wiki)
-    authorize @wikis
+    # authorize @wikis
   end
 
   def show

@@ -1,7 +1,7 @@
 class WikiPolicy < ApplicationPolicy
-  def index?
-    true
-  end
+  # def index?
+  #   true
+  # end
   
   def show?
     true
@@ -24,7 +24,7 @@ class WikiPolicy < ApplicationPolicy
   end
   
   def destroy?
-    user.id == record.user_id         # must be wiki owner???
+    user.id == record.user_id or user.admin?        # must be wiki owner or admin
   end
   
   def mywikis?
@@ -41,31 +41,41 @@ class WikiPolicy < ApplicationPolicy
  
     def resolve
       wikis = []
-      collaborators = []
-
-      if user.role == 'admin'
-        wikis = scope.all # if the user is an admin, show them all the wikis
+      
+      # not login, show only public wikis
+      if user.nil?
+        all_wikis = scope.all
+        all_wikis.each do |wiki|
+          wikis << wiki unless wiki.private
+        end
+      # admin, show all   
+      elsif user.role == 'admin'
+        wikis = scope.all 
+      # premium, show all public, show own private, show collaborate  
       elsif user.role == 'premium'
         all_wikis = scope.all
         all_wikis.each do |wiki|
+          collaborators = []
           wiki.collaborators.each do |collaborator|
             collaborators << collaborator.email
           end
-          if wiki.private == false || wiki.user == user || collaborators.include?(user.email)
+          if !wiki.private? || wiki.user == user || collaborators.include?(user.email)
             wikis << wiki
           end
         end
-      else # this is the lowly standard user
+      # standard, show all public, show collaborate
+      else 
         all_wikis = scope.all
         all_wikis.each do |wiki|
+          collaborators = []
           wiki.collaborators.each do |collaborator|
             collaborators << collaborator.email
           end
-          if wiki.private == false || collaborators.include?(user.email)
+          if !wiki.private? || collaborators.include?(user.email)
             wikis << wiki
           end
         end
-      end
+      end  
       wikis # return the wikis array we've built up
     end
   end
