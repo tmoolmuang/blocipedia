@@ -1,11 +1,16 @@
 <%= form_tag charges_path do %>
-  <h3>Upgrade to Premium</h3><br />
-  <ul>Limited time only. For only $15.00 you will get</ul>
-    <li>create private wikis and collaborate with team members</li>
-    <li>enjoy unlimited posts with unlimited space</li>
-    <li>use credit card 4242 4242 4242 4242 or 5555 5555 5555 4444 for testing</li>
-    <li>blah blah, and blah blah blah</li>
-  </ul>
-  <br />
-  <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Upgrade to Premium</h4>
+  </div>
+  <div class="panel-body">
+    <ul>Limited time only. For only $15.00 you will get to</ul>
+      <li>create private wikis and collaborate with team members</li>
+      <li>enjoy unlimited posts with unlimited space</li>
+      <li>use credit card 4242 4242 4242 4242 or 5555 5555 5555 4444 for testing</li>
+    </ul>
+    <br />
+    <script class='stripe-button' src="https://checkout.stripe.com/checkout.js" data-key="<%= @stripe_btn_data[:key] %>" data-amount="<%= @stripe_btn_data[:amount] %>" data-description="<%= @stripe_btn_data[:description] %>" ></script>
+  </div>
+</div>
 <% end %>

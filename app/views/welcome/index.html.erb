@@ -5,7 +5,7 @@
    <p>
      <% if user_signed_in? %>  
        <% if current_user.standard? %>
-         Upgrade to premium member <%= link_to 'Click', new_charge_path, class: "btn btn-primary"%> for special offer today! 
+         Upgrade to membership to premium.  <%= link_to 'Click', new_charge_path, class: "btn btn-primary"%> for special offer today! 
        <% end %>
      <% else %>
        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
