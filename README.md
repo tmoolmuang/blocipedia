@@ -49,7 +49,7 @@ This app was created as part of the [Bloc](www.bloc.io) Web Developer Track.
 
 **Business Rules:**
 
- +Unregistered Users
+ + Unregistered Users
 Also considered as guest. A guest is not required to sign up. Unregistered users have access to all public wikis.
 But do not have authorization to create or update wikis.
  
@@ -57,7 +57,7 @@ But do not have authorization to create or update wikis.
 Also considered as standard user. A standard user is required to sign-up and register with the site. 
 All standard users are allowed to update and create public wikis. 
 
-+Premium Users
++ Premium Users
 A standard user can upgrade to premium level with a small amount of fee. Premium user can create private wikis
 which can be viewd by all other premium members. Premium level also gives user a right to edit public and private wikis.
 Premium member can change a public wiki to a private wiki. Premium membership can be forfeited anytime by downgrading.
@@ -67,5 +67,5 @@ will become public wikis.
 Any private wikis can be assigned with collaborators by a premium user. Once a user has been assigned as a collaborator 
 he or she can edit that particular wiki.
 
-+Admin Users
++ Admin Users
 An admin user has access to all wikis. Admin can edit and delete any wikis.
