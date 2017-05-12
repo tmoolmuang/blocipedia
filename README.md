@@ -8,6 +8,8 @@ The source code is here on GitHub: https://github.com/tmoolmuang/blocipedia
 
 This app was created as part of the [Bloc](www.bloc.io) Web Developer Track.
 
+![m1](https://cloud.githubusercontent.com/assets/24881495/26014094/163e70d8-3710-11e7-8023-369cb422d990.jpg)
+
 # Features
 
 + Users can create a standard account in order to create, edit, and collaborate on public wikis using Markdown syntax. Anyone can view public wikis.
@@ -46,6 +48,8 @@ This app was created as part of the [Bloc](www.bloc.io) Web Developer Track.
 + Create and migrate the SQLite database with `rake db:create` and `rake db:migrate`
 + Start the server using `rails server`
 + Run the app on `localhost:3000`
+
+![m2](https://cloud.githubusercontent.com/assets/24881495/26014140/43d85888-3710-11e7-8fdb-0e65103911cc.jpg)
 
 **Business Rules:**
 
