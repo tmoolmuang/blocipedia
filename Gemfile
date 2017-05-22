@@ -11,6 +11,7 @@ source 'https://rubygems.org'
  group :development do
    gem 'sqlite3'
    gem 'web-console', '~> 2.0'
+   gem "letter_opener"
  end
  
  gem 'sass-rails', '~> 5.0'
@@ -32,7 +33,6 @@ source 'https://rubygems.org'
    gem 'spring'
    gem 'rspec-rails', '~> 3.0'
    gem 'shoulda'
-   gem 'faker'
    gem 'factory_girl_rails'
    gem 'pry-rails'
  end
