@@ -18,7 +18,9 @@ User.create!(
   User.create!(
     name: fake_first_name + " " + fake_last_name,
     password: 'password',
-    email: Faker::Internet.email(fake_first_name + "." + fake_last_name)
+    email: Faker::Internet.email(fake_first_name + "." + fake_last_name),
+    confirmed_at: DateTime.now
+    # skip confirmation
   )
 end
 
