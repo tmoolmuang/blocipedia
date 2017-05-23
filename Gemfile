@@ -21,7 +21,6 @@ source 'https://rubygems.org'
  gem 'figaro', '1.0'
  gem 'bootstrap-sass'
  gem 'devise'
- gem 'bcrypt'
  gem "pundit"
  gem 'stripe'
  gem 'faker'
