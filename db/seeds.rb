@@ -10,7 +10,10 @@ User.create!(
   name: 'Admin User',
   password: '123qwe',
   email: 'admin@user.com',
-  role: 'admin')
+  role: 'admin',
+  confirmed_at: DateTime.now
+  # skip confirmation
+)
   
 5.times do
   fake_first_name = Faker::Name.first_name
