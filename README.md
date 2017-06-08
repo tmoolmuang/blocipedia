@@ -1,4 +1,4 @@
-# Blocipedia
+# Blocipedia                 [![Build Status](https://travis-ci.org/tmoolmuang/blocipedia.svg?branch=master)](https://travis-ci.org/tmoolmuang/blocipedia)
 
 Blocipedia is a Ruby on Rails application that allows users to create wikis and collaborate on other wikis. Users can pay to upgrade their membership, allowing them to view and create private wikis.
 
