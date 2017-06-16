@@ -6,7 +6,7 @@ The app is deployed on Heroku: https://blocipedia-c9.herokuapp.com/
 
 The source code is here on GitHub: https://github.com/tmoolmuang/blocipedia
 
-This app was created as part of the [Bloc](www.bloc.io) Web Developer Track.
+This app was created as part of the [Bloc](http://www.bloc.io) Web Developer Track.
 
 ![m1](https://cloud.githubusercontent.com/assets/24881495/26014094/163e70d8-3710-11e7-8023-369cb422d990.jpg)
 
